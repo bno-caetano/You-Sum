@@ -1,12 +1,14 @@
 import openai
 from openai import OpenAI
 import os
+import streamlit as st
 
 class TextCompletion:
 
     def __init__(self, prompt, num_token):
-        self.api_key = os.getenv("OPENAI_API_KEY")
-        self.client = OpenAI()
+        # self.api_key = os.getenv("OPENAI_API_KEY")
+        self.api_key = st.secrets.open_credentials.key
+        self.client = OpenAI(api_key=self.api_key)
         self.all_responses = list()
         self.prompt = prompt
         self.num_token = num_token

@@ -37,7 +37,6 @@ if st.button('Resumir', type='primary'):
         message_placeholder = st.empty()
         message_placeholder.markdown("Aguarde um momento enquanto estou processando sua solicitação..")
         for r in comp.final_response():
-            st.markdown('Resumo:')
             message_placeholder.markdown(str(r) + "▌")
 
         message_placeholder.markdown(r)
