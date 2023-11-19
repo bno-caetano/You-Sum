@@ -1,6 +1,4 @@
 streamlit
 tiktoken
 openai
-ast
-contextlib
 youtube_transcript_api
