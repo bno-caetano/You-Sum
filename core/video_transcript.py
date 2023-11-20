@@ -4,6 +4,7 @@ from contextlib import suppress
 from youtube_transcript_api import YouTubeTranscriptApi
 from youtube_transcript_api.formatters import TextFormatter
 from utils.exceptions import DurationTime
+import streamlit as st
 
 class Transcript:
 
@@ -34,11 +35,12 @@ class Transcript:
         formatter = TextFormatter()
         try:
             if transcript[-1]['start'] > 600:
-                raise DurationTime
+                raise Exception
             else:
                 txt = formatter.format_transcript(transcript)
-        except DurationTime:
-            exit('Video muito longo. Lembre-se: a duração máxima permitida é de 10 minutos.')
+        except Exception:
+            st.error('Video muito grande. Por favor, mantenha seus videos em até 10 minutos.')
+            exit()
 
         return txt
     
