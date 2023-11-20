@@ -27,7 +27,8 @@ class Transcript:
         try:
             transcript = YouTubeTranscriptApi.get_transcript(id, language)
         except:
-            raise Exception('Url invalida ou idioma não suportado. por favor valide o link inserido.')
+            st.error('Url invalida ou idioma não suportado. Por favor valide o link inserido.')
+            exit()
 
         return transcript
 

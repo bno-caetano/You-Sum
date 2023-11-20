@@ -25,7 +25,10 @@ st.write(texto_abertura)
 url = st.text_input('Insira sua URL no box abaixo:')
 
 if url:
-    st.video(url)
+    try:
+        st.video(url)
+    except:
+        pass
    
 if st.button('Resumir', type='primary'):
     formatted_output = run.yt_trancript(url)
